@@ -26,7 +26,7 @@ namespace proyecto_24bm.Controllers
         public async Task<IActionResult> Index()
         {
             var response = await _context.Usuario.ToListAsync();
-            return View();
+            return View(response);
         }
 
         public IActionResult Privacy()

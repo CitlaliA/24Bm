@@ -1,8 +1,85 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<proyecto_24bm.Models.Usuario>
+
+@{
+	ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+
+	<div class="offset-9 col-3 mb-3">
+		<a asp-action="Crear" asp-controller="Home"> Nuevo usuario </a>
+	</div>
+
+	<div class="container-fluid">
+		<div class="offset-12">
+			<div class="card border">
+				<div class="card-header bg-dark">
+					<h1 class="text-white"><strong>Lista de usuarios</strong></h1>
+
+				</div>
+
+				<div class="card-body">
+					<div class="table-responsive">
+
+						@if (Model.Count() > 0)
+						{
+
+							<table class=" table table-bordered align-middle" id="tblUsuarios" width="100%" cellspacing="0">
+								<thead>
+									<tr>
+										<th> @Html.DisplayNameFor(x => x.Name)  </th>
+										<th> @Html.DisplayNameFor(x => x.user)  </th>
+										<th> @Html.DisplayNameFor(x => x.Password)  </th>
+										<th> @Html.DisplayNameFor(x => x.FkRol)  </th>
+										<th> Acciones </th>
+									</tr>
+								</thead>
+
+								<tbody>
+									@foreach (var item in Model)
+									{
+										<tr>
+											<td>
+												@Html.DisplayFor(x => item.Name)
+											</td>
+
+											<td>
+												@Html.DisplayFor(x => item.user)
+											</td>
+											<td>
+												@Html.DisplayFor(x => item.Password)
+											</td>
+											<td>
+												@Html.DisplayFor(x => item.FkRol)
+											</td>
+											<td>
+											<a class="btn btn-warning" asp-action="Editar" asp-route-id=@item.PkUsuario> Editar </a>
+											<a class="btn btn-danger" asp-action="Editar" asp-route-id=@item.PkUsuario> Eliminar </a>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+
+						}
+						else
+						{
+							<p>No hay registros</p>
+						}
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+
+
+
+
+	</div>
+
 </div>
