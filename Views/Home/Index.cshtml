@@ -50,7 +50,7 @@
 												@Html.DisplayFor(x => item.Password)
 											</td>
 											<td>
-												@Html.DisplayFor(x => item.FkRol)
+												@Html.DisplayFor(x => item.Roles.Name)
 											</td>
 											<td>
 											<a class="btn btn-warning" asp-action="Editar" asp-route-id=@item.PkUsuario> Editar </a>

@@ -11,8 +11,8 @@ namespace proyecto_24bm.Models
         public string user { get; set; }
         public string Password { get; set; }
 
-        [ForeignKey("Rol")]
+        [ForeignKey("Roles")]
         public int FkRol { get; set; }
-        public Roles roles { get; set; }
+        public Roles Roles { get; set; }
     }
 }
